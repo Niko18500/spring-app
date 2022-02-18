@@ -1,9 +1,8 @@
 package com.repository;
 
 import com.entity.User;
-import config.MongoConfig;
+import com.config.MongoConfig;
 
-import java.util.UUID;
 import java.util.Optional;
 import com.mongodb.client.MongoClient;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -32,7 +31,7 @@ public class UserRepository  {
     }
 
     public void addUser(String username, String password) {
-        User x = new User(UUID.randomUUID().toString(), username, password);
+        User x = User.createNew(username, password);
         mongoTemplate.insert(x);
     }
 

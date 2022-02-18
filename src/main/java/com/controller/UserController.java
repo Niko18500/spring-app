@@ -37,6 +37,7 @@ class UserController {
         var maybeUser = userRepo.findByID(data.getId());
 
         if (maybeUser.isPresent()) {
+            // NOTE: update username here
             return Response.good();
         } else {
             return Response.bad("Wrong ID!");
